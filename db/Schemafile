@@ -1,0 +1,68 @@
+create_table "users", force: :cascade do |t|
+  t.string "name", comment: "名前"
+  t.string "email", comment: "メールアドレス"
+  t.integer "age", comment: "年齢"
+  t.string "gender", comment: "性別"
+  t.datetime "birth_day", comment:"誕生日"
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "artists", force: :cascade do |t|
+  t.string "user_id", comment: "ユーザーid"
+  t.string "name", comment: "アーティスト名"
+  t.datetime "birth_day", comment:"結成日"
+  t.string "profile", comment: "プロフィール"
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "movies", force: :cascade do |t|
+  t.string "artist_id", comment: "アーティストのid"
+  t.string "title", comment: "動画名"
+  t.string "explanation", comment: "説明"
+  t.string "content_url", comment: "動画のurl"
+  t.integer "price", comment: "価格"
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "musics", force: :cascade do |t|
+  t.string "artist_id", comment: "アーティストのid"
+  t.string "title", comment: "タイトル"
+  t.string "explanation", comment: "説明"
+  t.string "content_url", comment: "音楽のurl"
+  t.integer "price", comment: "価格"
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "arts", force: :cascade do |t|
+  t.string "artist_id", comment: "アーティストのid"
+  t.string "title", comment: "絵画の名前"
+  t.string "explanation", comment: "説明"
+  t.string "content_url", comment: "絵画のurl"
+  t.integer "price", comment: "価格"
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "member_lists", force: :cascade do |t|
+  t.string "artist_id", comment: "アーティストid"
+  t.string "user_id", comment: "メンバーのユーザーid"
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "trades", force: :cascade do |t|
+  t.integer "user_id", comment: "ユーザー(購入者のid)"
+  t.string "artist_id", comment: "アーティスト(出品者のid)"
+  t.integer "junle", comment: "種別"
+  t.integer "item_id", comment: "その作品のid"
+  t.integer "status", comment: "取引状況"
+  t.integer "payment_method", comment: "支払い方法"
+  t.integer "total", comment: "価格"
+  t.integer "is_canceled", comment: "キャンセルされたかどうか"
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
